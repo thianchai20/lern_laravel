@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\customerModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -12,7 +13,9 @@ class customerController extends Controller
      */
     public function index()
     {
-        return view('crud');
+        $data["customers"] = customerModel::all();
+        
+        return view('crud',$data);
     }
 
     /**
@@ -28,7 +31,19 @@ class customerController extends Controller
      */
     public function store(Request $request)
     {
-        return Redirect::to('/customers');
+        $name = $request->input("name");
+        $phone = $request->input("phone");
+        
+        $customerModel = new customerModel();
+
+        $customerModel-> c_name = $name;
+        $customerModel-> c_phone = $phone;
+
+        $customerModel-> save();
+        
+        $data["customers"] = customerModel::all();
+        
+        return view('crud',$data);
     }
 
     /**
@@ -36,15 +51,32 @@ class customerController extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
+        //$c_data  = customerModel::find($id);
+        //$customers = customerModel::all(); 
+
+        //if($c_data === null){
+        //    return Redirect::to("/customers"); 
+        //}else{
+        //return view('read',compact("c_data"));
+        return view('read');
+    //}
+    }   
+    
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        //
+        $c_data  = customerModel::find($id);
+        $customers = customerModel::all(); 
+
+        if($c_data === null){
+            return Redirect::to("/customers"); 
+        }else{
+        return view('update',compact("c_data"));
+        //return view('update');
+    }
     }
 
     /**
@@ -52,7 +84,17 @@ class customerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $name = $request -> input("name");
+        $phone = $request -> input("phone");
+        
+        $customerModelId = customerModel::find($id);
+        
+        $customerModelId -> c_name = $name;
+        $customerModelId -> c_phone = $phone;
+
+        $customerModelId -> save();
+        
+        return Redirect::to("/customers");
     }
 
     /**
@@ -60,6 +102,10 @@ class customerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $customerModelId = customerModel::find($id);
+        
+        $customerModelId -> delete();
+        
+        return Redirect::to("/customers");
     }
 }

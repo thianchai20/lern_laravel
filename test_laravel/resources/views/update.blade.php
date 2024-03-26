@@ -9,18 +9,19 @@
 </head>
 
 <body>
-    <div>
-        <h1 id = "label-from">ADD FROM</h1>
-        <form action="/customers" method="POST"> 
+    <div class="container">
+        <h1 id = "label-from">UPDATE FROM</h1>
+        <form action="/customers/{{$c_data -> c_id}}" method="POST"> 
             @csrf
+            @method("PUT")
             <label for="">Name : </label>
             <br>
-            <input type="text" name = "name" required>
+            <input type="text" name = "name" value = {{$c_data -> c_name}}>
             <br>
             <br>
             <label for="">Phone : </label>
             <br>
-            <input type="text" name  = "phone"required>
+            <input type="text" name  = "phone"value = {{$c_data -> c_phone}}>
             <br>
             <br>
             <button class="submit-btn" type="submit">submit</button>

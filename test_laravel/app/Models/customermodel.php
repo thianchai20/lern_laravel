@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class customermodel extends Model
+class customerModel extends Model
 {
     use HasFactory;
-    protected $table = 'customer';
+    protected $table = 'customers';
     protected $primeryKey  = 'c_id';
     public $incrementing = true;
     public $timestamps = false;

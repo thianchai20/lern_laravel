@@ -124,3 +124,16 @@ table.table td i {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+.delete-form{
+    display: inline;
+}
+
+.delete{
+    color: red;
+}
+
+.delete-btn{
+    border: none;
+    background: transparent;
+}

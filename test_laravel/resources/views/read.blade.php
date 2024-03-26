@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{{asset('css/add.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/read.css')}} ">
 </head>
 
 <body>
-    <div>
-        <h1 id = "label-from">ADD FROM</h1>
-        <form action="/customers" method="POST"> 
-            @csrf
+    <div class="container">
+        <h1 id = "label-from">READ FROM</h1>
+        <br>
+        <div>
             <label for="">Name : </label>
             <br>
-            <input type="text" name = "name" required>
+            
             <br>
             <br>
             <label for="">Phone : </label>
             <br>
-            <input type="text" name  = "phone"required>
+            
             <br>
             <br>
-            <button class="submit-btn" type="submit">submit</button>
-        </form>
+            <a href="/customers"><button class="back-btn" type="button">back</button></a>
+        </div>
     </div>
 </body>
 
