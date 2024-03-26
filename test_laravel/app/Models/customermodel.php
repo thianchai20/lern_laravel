@@ -9,7 +9,7 @@ class customerModel extends Model
 {
     use HasFactory;
     protected $table = 'customers';
-    protected $primeryKey  = 'c_id';
+    protected $primaryKey  = 'c_id';
     public $incrementing = true;
     public $timestamps = false;
 }

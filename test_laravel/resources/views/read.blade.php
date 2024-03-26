@@ -13,14 +13,14 @@
         <h1 id = "label-from">READ FROM</h1>
         <br>
         <div>
-            <label for="">Name : </label>
+            <label for="">Name : {{$c_data -> c_name}}</label>
             <br>
             
             <br>
             <br>
-            <label for="">Phone : </label>
+            <label for="">Phone : {{$c_data -> c_phone}}</label>
             <br>
-            
+             
             <br>
             <br>
             <a href="/customers"><button class="back-btn" type="button">back</button></a>

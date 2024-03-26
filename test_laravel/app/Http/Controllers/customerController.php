@@ -51,15 +51,13 @@ class customerController extends Controller
      */
     public function show(string $id)
     {
-        //$c_data  = customerModel::find($id);
-        //$customers = customerModel::all(); 
+        $c_data  = customerModel::find($id);
 
-        //if($c_data === null){
-        //    return Redirect::to("/customers"); 
-        //}else{
-        //return view('read',compact("c_data"));
-        return view('read');
-    //}
+        if($c_data === null){
+            return Redirect::to("/customers"); 
+        }else{
+        return view('read',compact("c_data"));
+    }
     }   
     
 
